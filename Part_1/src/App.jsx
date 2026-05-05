@@ -3,8 +3,10 @@ import Content from './components/Content'
 import Total from './components/Total'
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const parts = [{
+  const course = {
+   name: 'Half stack application development',
+   parts: [
+    {
     name: 'Fundamentals of React',
     exercises: 10
   },
@@ -15,13 +17,16 @@ const App = () => {
   {
     name: 'State of a component',
     exercises: 14
-  }]
+  }
+   ]
+  }
+
 
   return (
     <div>
-     <Header course={course} />
-     <Content part1={parts[0].name} part2={parts[1].name} part3={parts[2].name} exercises1={parts[0].exercises} exercises2={parts[1].exercises} exercises3={parts[2].exercises}/>
-     <Total total= {`${parts[0].exercises + parts[1].exercises+ parts[2].exercises}`}/>
+     <Header course={course.name} />
+     <Content part1={course.parts[0].name} part2={course.parts[1].name} part3={course.parts[2].name} exercises1={course.parts[0].exercises} exercises2={course.parts[1].exercises} exercises3={course.parts[2].exercises}/>
+     <Total total= {`${course.parts[0].exercises + course.parts[1].exercises+ course.parts[2].exercises}`}/>
     </div>
   )
 }
