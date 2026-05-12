@@ -1,21 +1,16 @@
-const Hello = (props) => {
-  console.log(props)
+import Note from "./components/Note";
+
+const App = ({ notes }) => {
   return (
     <div>
-      <p>Hello {props.name}, you are {props.age} years old</p>
+      <h1>Notes</h1>
+      <ul>
+        {notes.map((note) => (
+          <Note key={note.id} note={note} />
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-const App = () => {
-
-  return (
-    <div>
-      <h1>Greetings</h1>
-
-      <Hello name="Deepjal" age="20"/>
-    </div>
-  )
-}
-
-export default App
+export default App;
