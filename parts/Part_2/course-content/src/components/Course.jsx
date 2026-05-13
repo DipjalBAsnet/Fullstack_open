@@ -1,15 +1,12 @@
-const Course = ({ course, total }) => {
+import Header from "./Header";
+import Content from "./Content";
+
+const Course = ({ course }) => {
+  const total = course.parts.reduce((prev, next) => prev + next.exercises, 0);
   return (
     <div>
-      <h1> {course.name}</h1>
-      <p>
-        {course.parts.map((part) => (
-          <li key={part.id}>
-            {part.name} {part.exercises}
-          </li>
-        ))}
-        <b>{`total of ${total} exercises`}</b>
-      </p>
+      <Header header={course} />
+      <Content course={course} total={total} />
     </div>
   );
 };
