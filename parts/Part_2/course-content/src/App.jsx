@@ -1,4 +1,5 @@
 import Course from "./components/Course";
+import Total from "./components/Total";
 
 const App = () => {
   const course = {
@@ -23,7 +24,15 @@ const App = () => {
     ],
   };
 
-  return <Course course={course} />;
+  const total = course.parts.reduce((prev, next) => prev + next.exercises, 0);
+
+  console.log(total);
+
+  return (
+    <div>
+      <Course course={course} total={total} />
+    </div>
+  );
 };
 
 export default App;
