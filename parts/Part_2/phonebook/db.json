@@ -24,6 +24,11 @@
       "name": "sdfdf",
       "number": "54345",
       "id": "lu00LZbepVk"
+    },
+    {
+      "name": "gfdgd",
+      "number": "545",
+      "id": "XCRw1NFtMFQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

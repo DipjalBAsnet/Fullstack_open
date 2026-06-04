@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import PersonsForm from "./components/PersonsForm";
 import Persons from "./components/Persons";
-import axios from "axios";
+import noteService from "./services/persons";
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -11,13 +11,10 @@ const App = () => {
   const [newNumber, setNewNumber] = useState("");
 
   useEffect(() => {
-    console.log("effect");
-    axios.get("http://localhost:3001/persons").then((response) => {
-      setPersons(response.data);
-      console.log("response fulfilled");
+    noteService.getAll().then((persons) => {
+      setPersons(persons);
     });
   }, []);
-  console.log("render", persons.length, "person");
 
   const addPerson = (event) => {
     event.preventDefault();
@@ -34,13 +31,11 @@ const App = () => {
       number: newNumber,
     };
 
-    axios
-      .post("http://localhost:3001/persons", personObject)
-      .then((response) => {
-        setPersons(persons.concat(response.data));
-        setNewperson("");
-        setNewNumber("");
-      });
+    noteService.create(personObject).then((newPerson) => {
+      setPersons(persons.concat(newPerson));
+      setNewperson("");
+      setNewNumber("");
+    });
   };
 
   const handleNoteChange = (event) => {
