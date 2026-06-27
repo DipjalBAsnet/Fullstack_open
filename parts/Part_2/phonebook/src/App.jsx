@@ -56,6 +56,13 @@ const App = () => {
     setSearch(event.target.value);
   };
 
+  const removePerson = (id, name) => {
+    if (window.confirm(`Delete ${name}`)) {
+      noteService.deletePerson(id).then(() => {
+        setPersons(persons.filter((p) => p.id != id));
+      });
+    }
+  };
   return (
     <div>
       <h1>phonebook</h1>
@@ -69,7 +76,7 @@ const App = () => {
         handleNumberChange={handleNumberChange}
       />
       <h2>Numbers</h2>
-      <Persons filteredPerson={filteredPerson} />
+      <Persons filteredPerson={filteredPerson} removePerson={removePerson} />
     </div>
   );
 };
