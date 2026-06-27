@@ -272,7 +272,7 @@
     {
       "id": "2",
       "content": "Browser can execute only JavaScript",
-      "important": false
+      "important": true
     },
     {
       "id": "3",
@@ -303,6 +303,11 @@
       "content": "dsd",
       "important": true,
       "id": "F_9FFae8zgo"
+    },
+    {
+      "content": "gfdfg",
+      "important": false,
+      "id": "TOyBbWY67Mo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
